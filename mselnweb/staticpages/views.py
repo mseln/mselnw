@@ -3,7 +3,7 @@ from django.http import Http404
 
 from .models import StaticPage
 
-def index(request, slug):
+def index(request, slug='home'):
     try:
         staticpage = StaticPage.objects.get(url=slug)
     except StaticPage.DoesNotExist:
