@@ -5,5 +5,5 @@
 {% endblock %}
 
 {% block content %}
-  {{staticpage.text}}
+  {{staticpage.formatted_markdown|safe}}
 {% endblock %}

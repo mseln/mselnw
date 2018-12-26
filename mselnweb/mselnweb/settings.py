@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # --------
+    'markdownx',
+    # --------
     'staticpages.apps.StaticpagesConfig',
 ]
 
@@ -119,10 +121,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL  = '/static/'
-STATIC_ROOT = ''
+STATIC_URL  = '/staticfiles/'
+STATIC_ROOT = 'static'
 STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'static'),
+  os.path.join(BASE_DIR, 'staticfiles'),
 )
 
 STATICFILES_FINDERS = (
@@ -130,4 +132,9 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
+MARKDOWNX_MEDIA_PATH = 'markdownx'
+MARKDOWNX_UPLOAD_URLS_PATH = '/markdownx/upload/'
 
