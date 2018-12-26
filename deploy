@@ -1,0 +1,43 @@
+#!/bin/bash
+
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+normal=$(tput sgr0)
+
+check_if_success(){
+    if [ $? -eq 0 ]; then
+        printf "%s\n" "${green}[ok]${normal}"
+    else
+        printf "%-60s%s\n" "" "${red}[fail]${normal}"
+        exit
+    fi
+}
+
+# Check that this script is run as root
+printf "%-60s%s" "Checking root privileges..."
+if [[ $EUID -ne 0 ]]; then
+    printf "%s\n" "${red}[fail]${normal}"
+    exit 1
+else
+    printf "%s\n" "${green}[ok]${normal}"
+fi
+
+# Stop apache webserver
+printf "%-60s" "Stopping apache..."
+service apache2 stop
+check_if_success
+
+# Move project to deployment folder
+printf "%-60s" "Deploying mselnweb at /var/www..."
+cp -r mselnweb /var/www 
+check_if_success
+
+# Use deployment settings
+printf "%-60s" "Enabling deployment settings..."
+cp settings.py /var/www/mselnweb/mselnweb
+check_if_success
+
+# Start apache webserver again
+printf "%-60s" "Starting apache..."
+service apache2 start
+check_if_success
