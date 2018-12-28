@@ -1,5 +1,11 @@
 from django.contrib import admin
-from markdownx.admin import MarkdownxModelAdmin
+from django_summernote.admin import SummernoteModelAdmin
+# from markdownx.admin import MarkdownxModelAdmin
 
 from .models import StaticPage
-admin.site.register(StaticPage, MarkdownxModelAdmin)
+
+class StaticPageAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
+
+# admin.site.register(StaticPage, MarkdownxModelAdmin)
+admin.site.register(StaticPage, StaticPageAdmin)

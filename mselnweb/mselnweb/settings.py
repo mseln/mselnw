@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # --------
     'markdownx',
+    'django_summernote',
     # --------
     'staticpages.apps.StaticpagesConfig',
 ]
@@ -133,8 +134,9 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MARKDOWNX_MEDIA_PATH = 'markdownx'
 MARKDOWNX_UPLOAD_URLS_PATH = '/markdownx/upload/'
 

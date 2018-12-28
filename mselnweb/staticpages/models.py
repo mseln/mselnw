@@ -3,10 +3,12 @@ from markdownx.models import MarkdownxField
 
 from markdownx.utils import markdownify
 
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
+
 class StaticPage(models.Model):
     title = models.CharField(max_length=50)
     url = models.SlugField(max_length=50)
-    field = MarkdownxField(blank = True)
+    content = models.TextField()
 
     @property
     def formatted_markdown(self):
