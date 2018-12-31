@@ -135,7 +135,6 @@ STATICFILES_FINDERS = (
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MARKDOWNX_MEDIA_PATH = 'markdownx'
 MARKDOWNX_UPLOAD_URLS_PATH = '/markdownx/upload/'
