@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5^f1ac7t-)y+o+&xeg#yb90*_xq7mlzvacyy28mhvejf)8la2r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -135,8 +135,8 @@ STATICFILES_FINDERS = (
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 MARKDOWNX_MEDIA_PATH = 'markdownx'
 MARKDOWNX_UPLOAD_URLS_PATH = '/markdownx/upload/'
 

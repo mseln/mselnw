@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # --------
+    'markdownx',
+    'django_summernote',
+    # --------
     'staticpages.apps.StaticpagesConfig',
 ]
 
@@ -130,6 +133,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+MARKDOWNX_MEDIA_PATH = 'markdownx'
+
+SUMMERNOTE_CONFIG = {
+    'attachment_filesize_limit': 16 * 1024 * 1024, # specify the file size
+}
